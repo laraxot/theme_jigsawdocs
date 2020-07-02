@@ -1,12 +1,16 @@
 const mix = require('laravel-mix');
+require('dotenv').config({
+    path: __dirname + '/../../../../.env'
+});
+
 require('laravel-mix-jigsaw');
 require('laravel-mix-purgecss');
 
-mix.disableSuccessNotifications();
-mix.setPublicPath('source/assets/build');
+//mix.disableSuccessNotifications();
+//mix.setPublicPath('source/assets/build');
 
-mix.js('source/_assets/js/main.js', 'js')
-    .sass('source/_assets/sass/main.scss', 'css/main.css')
+mix.js('resources/js/app.js', 'dist/js')
+    .sass('resources/sass/app.scss', 'dist/css')
     .jigsaw({
         watch: ['config.php', 'source/**/*.md', 'source/**/*.php', 'source/**/*.scss'],
     })
@@ -22,3 +26,16 @@ mix.js('source/_assets/js/main.js', 'js')
     })
     .sourceMaps()
     .version();
+
+mix.setResourceRoot('../');
+mix.setPublicPath('dist');
+mix.extract();
+
+var $prefix = '../../../../';
+var $suffix = '/themes/jigsawdocs';
+var $resource_root = $prefix + $suffix;
+var $public_path = $prefix + process.env.MIX_PUBLIC_FOLDER + $suffix;
+
+console.log('public_path :' + $public_path);
+console.log('dirname :' + __dirname);
+$res = mix.copyDirectory(__dirname + '/dist', $public_path + '/dist');

@@ -1,6 +1,6 @@
-@extends('_layouts.master')
+@extends('pub_theme::layouts.app')
 
-@section('body')
+@section('content')
 <section class="container max-w-6xl mx-auto px-6 py-10 md:py-12">
     <div class="flex flex-col-reverse mb-10 lg:flex-row lg:mb-24">
         <div class="mt-8">
@@ -17,14 +17,14 @@
             </div>
         </div>
 
-        <img src="/assets/img/logo-large.svg" alt="{{ $page->siteName }} large logo" class="mx-auto mb-6 lg:mb-0 ">
+        <img src="{{ Theme::asset('pub_theme::assets/img/logo-large.svg') }}" alt="{{ $page->siteName }} large logo" class="mx-auto mb-6 lg:mb-0 ">
     </div>
 
     <hr class="block my-8 border lg:hidden">
 
     <div class="md:flex -mx-2 -mx-4">
         <div class="mb-8 mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-window.svg" class="h-12 w-12" alt="window icon">
+            <img src="{{ Theme::asset('pub_theme::assets/img/icon-window.svg') }}" class="h-12 w-12" alt="window icon">
 
             <h3 id="intro-laravel" class="text-2xl text-blue-900 mb-0">Templating with <br>Laravel's Blade engine</h3>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="mb-8 mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-terminal.svg" class="h-12 w-12" alt="terminal icon">
+            <img src="{{ Theme::asset('pub_theme::assets/img/icon-terminal.svg') }}" class="h-12 w-12" alt="terminal icon">
 
             <h3 id="intro-markdown" class="text-2xl text-blue-900 mb-0">Use Markdown for <br>content-driven pages</h3>
 
@@ -40,7 +40,7 @@
         </div>
 
         <div class="mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-stack.svg" class="h-12 w-12" alt="stack icon">
+            <img src="{{ Theme::asset('pub_theme::assets/img/icon-stack.svg') }}" class="h-12 w-12" alt="stack icon">
 
             <h3 id="intro-mix" class="text-2xl text-blue-900 mb-0">Compile your assets <br>using Laravel Mix </h3>
 
